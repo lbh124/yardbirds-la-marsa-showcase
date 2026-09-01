@@ -62,8 +62,8 @@ export function SiteHeader() {
           aria-label={open ? "Close menu" : "Open menu"}
           className="shrink-0 p-2 lg:hidden"
         >
-          {open ? <Menu className="hidden" /> : null}
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+
         </button>
       </div>
 

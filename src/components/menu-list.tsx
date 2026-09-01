@@ -63,18 +63,24 @@ export const menuCategories: MenuCategory[] = [
   },
 ];
 
+export function slugify(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
 export function MenuCategoryBlock({ category }: { category: MenuCategory }) {
+  const id = `cat-${slugify(category.category)}`;
   return (
-    <section aria-labelledby={`cat-${category.category}`} className="py-10">
+    <section aria-labelledby={id} className="scroll-mt-28 py-10">
       <div className="flex items-baseline gap-6">
         <h2
-          id={`cat-${category.category}`}
+          id={id}
           className="font-display text-3xl tracking-tight uppercase sm:text-4xl"
         >
           {category.category}
         </h2>
         <span className="rule-line hidden flex-1 sm:block" aria-hidden="true" />
       </div>
+
 
       <ul className="mt-8 space-y-7">
         {category.items.map((item, i) => (
