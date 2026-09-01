@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/page-hero";
 import { Section } from "@/components/section";
-import { MenuCategoryBlock, menuCategories } from "@/components/menu-list";
+import { MenuCategoryBlock, menuCategories, slugify } from "@/components/menu-list";
 import { site } from "@/lib/site";
 
 export const Route = createFileRoute("/menu")({
@@ -40,7 +40,7 @@ function MenuPage() {
           {menuCategories.map((c) => (
             <a
               key={c.category}
-              href={`#cat-${c.category}`}
+              href={`#cat-${slugify(c.category)}`}
               className="text-[0.65rem] tracking-[0.24em] text-muted-foreground uppercase transition-colors hover:text-primary"
             >
               {c.category}
